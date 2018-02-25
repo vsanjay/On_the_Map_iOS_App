@@ -23,9 +23,8 @@ class TableViewController: UIViewController,UITableViewDataSource,UITableViewDel
     
     override func viewDidAppear(_ animated: Bool) {
         
-        studentLocations = ParseClient.sharedInstance().studentLocations
+        studentLocations = SharedData.sharedInstance().studentLocations
         studentTableView.reloadData()
-        print(ParseClient.sharedInstance().studentLocations.count)
     }
 
    // Hide Status bar

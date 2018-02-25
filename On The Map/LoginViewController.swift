@@ -76,7 +76,6 @@ class LoginViewController: UIViewController {
         performUIUpdatesOnMain {
             
             self.present(self.alertController, animated: true, completion: nil)
-            self.performSegue(withIdentifier: "goToTabControllerSegue", sender: self)
             
         }
         

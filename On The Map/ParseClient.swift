@@ -4,7 +4,7 @@ import Foundation
 class ParseClient : NSObject{
     
     // Array of student locations
-    var studentLocations = [StudentLocation]()
+    
     var studentLocationCommonURL = "https://parse.udacity.com/parse/classes/StudentLocation"
     
     // init from parent class
@@ -14,7 +14,9 @@ class ParseClient : NSObject{
     
     func getRequest(completionHandler : @escaping (_ success : Bool,_ error : String) -> Void){
         
-        let url = URL(string : studentLocationCommonURL)
+        let url = URL(string : studentLocationCommonURL + "?limit=100" + "&order=-updatedAt")
+        
+        print(url)
         
         var request = URLRequest(url: url!)
         
@@ -38,9 +40,12 @@ class ParseClient : NSObject{
                         
                         let results = jsonData["results"] as! [[String : AnyObject]]
                         
+                        print(results.count)
+                        
+                        
                         
                         // Cleaning any previous elements present as we want only recent locations
-                        self.studentLocations.removeAll()
+                        SharedData.sharedInstance().studentLocations.removeAll()
                         
                         for student in results{
                             
@@ -50,7 +55,7 @@ class ParseClient : NSObject{
                             
                             // append to studentlocations array
                             
-                            self.studentLocations.append(studentLocationObject)
+                            SharedData.sharedInstance().studentLocations.append(studentLocationObject)
                             
                         }
                         
@@ -176,13 +181,16 @@ class ParseClient : NSObject{
         }else {
             objectID = ""
         }
-        if student["uniqueKey"] != nil {
+        if let key = student["uniqueKey"] as? String {
             
-            uniqueKey = student["uniqueKey"] as! String
+            uniqueKey = key
+            
         }else {
             uniqueKey = ""
         }
         if student["firstName"] != nil {
+            
+            print(student["firstName"])
             
             firstName = student["firstName"] as! String
         }else {
@@ -219,7 +227,9 @@ class ParseClient : NSObject{
             longitude = 87.28771400000005
         }
         
-        let studentLocationObject = StudentLocation(objectID: objectID, uniqueKey: uniqueKey, firstName: firstName, lastName: lastName, mapString: mapString, mediaURL: mediaURL, latitude: latitude, longitude: longitude)
+        let studentDict : [String : AnyObject ] = ["objectID" : objectID as AnyObject,"uniqueKey" : uniqueKey as AnyObject,"firstName" : firstName as AnyObject,"lastName" : lastName as AnyObject,"mapString" : mapString as AnyObject , "mediaURL" : mediaURL as AnyObject,"latitude" : latitude as AnyObject , "longitude" : longitude as AnyObject]
+        
+        let studentLocationObject = StudentLocation(studentDict: studentDict)
         
         return studentLocationObject
         

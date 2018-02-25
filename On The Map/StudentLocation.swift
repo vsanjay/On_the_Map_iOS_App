@@ -13,16 +13,16 @@ struct StudentLocation{
     let longitude : Double!
     
     
-    init(objectID : String, uniqueKey : String,firstName : String,lastName : String,mapString : String,mediaURL : String,latitude : Double,longitude : Double){
+    init(studentDict : [String : AnyObject]){
         
-        self.objectID = objectID
-        self.uniqueKey = uniqueKey
-        self.firstName = firstName
-        self.lastName = lastName
-        self.mapString = mapString
-        self.mediaURL = mediaURL
-        self.latitude = latitude
-        self.longitude = longitude
+        self.objectID = studentDict["objectID"] as! String
+        self.uniqueKey = studentDict["uniqueKey"] as! String
+        self.firstName = studentDict["firstName"] as! String
+        self.lastName = studentDict["lastName"] as! String
+        self.mapString = studentDict["mapString"] as! String
+        self.mediaURL = studentDict["mediaURL"] as! String
+        self.latitude = studentDict["latitude"] as! Double
+        self.longitude = studentDict["longitude"] as! Double
         
     }
     

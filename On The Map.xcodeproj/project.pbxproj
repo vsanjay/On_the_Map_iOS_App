@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		343D280C20436B5500369AEC /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343D280B20436B5500369AEC /* SharedData.swift */; };
 		3451BC90203F0A8A004A2BFA /* UdacityConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451BC8F203F0A8A004A2BFA /* UdacityConstants.swift */; };
 		3451BC92203F0EF6004A2BFA /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451BC91203F0EF6004A2BFA /* UdacityClient.swift */; };
 		3455FEFA203F6204004CC231 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3455FEF9203F6204004CC231 /* GCDBlackBox.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		343D280B20436B5500369AEC /* SharedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
 		3451BC8F203F0A8A004A2BFA /* UdacityConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityConstants.swift; sourceTree = "<group>"; };
 		3451BC91203F0EF6004A2BFA /* UdacityClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
 		3455FEF9203F6204004CC231 /* GCDBlackBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				34595C6A20405CB10001053D /* CustomTableCell.swift */,
 				3455FEFF203F68B6004CC231 /* MapViewController.swift */,
 				34595C6820402A8E0001053D /* ParseClient.swift */,
+				343D280B20436B5500369AEC /* SharedData.swift */,
 				34595C66204028890001053D /* StudentLocation.swift */,
 				34C74F11203F01DF00FF5EBA /* Assets.xcassets */,
 				34C74F13203F01DF00FF5EBA /* LaunchScreen.storyboard */,
@@ -189,6 +192,7 @@
 				34C74F0D203F01DF00FF5EBA /* LoginViewController.swift in Sources */,
 				3455FEFE203F6636004CC231 /* TextFieldDelegate.swift in Sources */,
 				34595C6F20407FAF0001053D /* InformationPostingViewController.swift in Sources */,
+				343D280C20436B5500369AEC /* SharedData.swift in Sources */,
 				34595C6D20405D000001053D /* TableViewController.swift in Sources */,
 				34C74F0B203F01DF00FF5EBA /* AppDelegate.swift in Sources */,
 				3451BC90203F0A8A004A2BFA /* UdacityConstants.swift in Sources */,

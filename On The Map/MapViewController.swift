@@ -70,7 +70,7 @@ class MapViewController: UIViewController,MKMapViewDelegate {
             
             if success {
                 
-                self.studentLocations = ParseClient.sharedInstance().studentLocations
+                self.studentLocations = SharedData.sharedInstance().studentLocations
                 self.putPinsOnMap()
             }else{
                 self.presentAlertController(error: error)
@@ -99,7 +99,11 @@ class MapViewController: UIViewController,MKMapViewDelegate {
             
         }
         
-        mapView.addAnnotations(annotations)
+        performUIUpdatesOnMain {
+            self.mapView.addAnnotations(annotations)
+        }
+        
+        
         
     }
     
@@ -132,7 +136,9 @@ class MapViewController: UIViewController,MKMapViewDelegate {
         if control == view.rightCalloutAccessoryView {
             let app = UIApplication.shared
             if let toOpen = view.annotation?.subtitle! {
-                app.open(URL(string: toOpen)!, options: [:], completionHandler: nil)
+                if let url = URL(string : toOpen){
+                app.open(url, options: [:], completionHandler: nil)
+                }
             }
         }
     }
